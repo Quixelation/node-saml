@@ -1,5 +1,13 @@
 # Changelog
 
+## v4.0.5 (2023-08-18)
+
+#### 🐛 Bug Fixes:
+
+- [**security**] Fix CVE-2023-40178 [GHSA-vx8m-6fhw-pccw](https://github.com/node-saml/node-saml/security/advisories/GHSA-vx8m-6fhw-pccw)
+
+---
+
 ## v4.0.4 (2023-04-11)
 
 ### 🔗 Dependencies
@@ -100,16 +108,29 @@
 - [**javascript**] Bump typescript from 4.8.3 to 4.8.4 [#181](https://github.com/node-saml/node-saml/pull/181)
 - [**github_actions**] Bump codecov/codecov-action from 3.1.0 to 3.1.1 [#180](https://github.com/node-saml/node-saml/pull/180)
 - [**javascript**] Bump vm2 from 3.9.10 to 3.9.11 [#179](https://github.com/node-saml/node-saml/pull/179)
-- [**javascript**] Bump @typescript-eslint/eslint-plugin from 5.30.7 to 5.36.2 [#171](https://github.com/node-saml/node-saml/pull/171)
-- [**javascript**] Bump @types/chai from 4.3.1 to 4.3.3 [#172](https://github.com/node-saml/node-saml/pull/172)
-- [**javascript**] Bump @typescript-eslint/parser from 5.30.7 to 5.36.2 [#170](https://github.com/node-saml/node-saml/pull/170)
-- [**javascript**] Bump eslint from 8.19.0 to 8.23.0 [#163](https://github.com/node-saml/node-saml/pull/163)
-- [**javascript**] Bump typescript from 4.7.4 to 4.8.3 [#169](https://github.com/node-saml/node-saml/pull/169)
-- [**javascript**] Bump concurrently from 7.2.2 to 7.3.0 [#136](https://github.com/node-saml/node-saml/pull/136)
-- [**javascript**] Bump @types/sinon from 10.0.12 to 10.0.13 [#134](https://github.com/node-saml/node-saml/pull/134)
-- deps: move express to devDependencies because it is only used in a test. [#161](https://github.com/node-saml/node-saml/pull/161)
-- Update changelog [#162](https://github.com/node-saml/node-saml/pull/162)
-- [**javascript**] Bump @typescript-eslint/parser from 5.30.5 to 5.30.7 [#125](https://github.com/node-saml/node-saml/pull/125)
+
+#### 🐛 Bug Fixes:
+
+- [**security**] Fix CVE-2022-39300 [GHSA-5p8w-2mvw-38pv](https://github.com/node-saml/passport-saml/security/advisories/ GHSA-5p8w-2mvw-38pv)
+
+#### ⚙️ Technical Tasks:
+
+- Clean up signature tests [#178](https://github.com/node-saml/node-saml/pull/178)
+- Remove some usage of `any` type [#175](https://github.com/node-saml/node-saml/pull/175)
+- Add prerelease script [#174](https://github.com/node-saml/node-saml/pull/174)
+
+---
+
+## v4.0.0-beta.4 (2022-09-10)
+
+#### 🚀 Minor Changes:
+
+- fix generate unique metadata ID [#158](https://github.com/node-saml/node-saml/pull/158)
+- Include AuthnRequestsSigned attribute in all metadata [#143](https://github.com/node-saml/node-saml/pull/143)
+- Add support for metadata ContactPerson and Organization [#140](https://github.com/node-saml/node-saml/pull/140)
+
+#### 🔗 Dependencies:
+
 - [**javascript**] Bump @types/node from 14.18.16 to 14.18.22 [#124](https://github.com/node-saml/node-saml/pull/124)
 - [**javascript**] Bump @typescript-eslint/eslint-plugin from 5.30.6 to 5.30.7 [#123](https://github.com/node-saml/node-saml/pull/123)
 - [**javascript**] Bump release-it from 15.1.1 to 15.1.2 [#122](https://github.com/node-saml/node-saml/pull/122)
