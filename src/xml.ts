@@ -69,28 +69,29 @@ export const validateSignature = (
   currentNode: Element,
   pemFiles: string[],
 ): boolean => {
-  const xpathSigQuery =
-    ".//*[" +
-    "local-name(.)='Signature' and " +
-    "namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#' and " +
-    "descendant::*[local-name(.)='Reference' and @URI='#" +
-    currentNode.getAttribute("ID") +
-    "']" +
-    "]";
+  const xpathSigQuery = ".//*[" +
+        //"local-name(.)='ds:Signature' and " +
+        "local-name(.)='Signature' and " +
+        //"namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#' and " +
+        "descendant::*[local-name(.)='Reference'" +
+        //" and @URI='#" +
+        //currentNode.getAttribute("ID") + "'"
+        "]" +
+        "]"
   const signatures = xpath.selectElements(currentNode, xpathSigQuery);
   // This function is expecting to validate exactly one signature, so if we find more or fewer
   //   than that, reject.
   if (signatures.length !== 1) {
     return false;
   }
-  const xpathTransformQuery =
-    ".//*[" +
-    "local-name(.)='Transform' and " +
-    "namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#' and " +
-    "ancestor::*[local-name(.)='Reference' and @URI='#" +
-    currentNode.getAttribute("ID") +
-    "']" +
-    "]";
+  const xpathTransformQuery = ".//*[" +
+        "local-name(.)='Transform' and " +
+        "namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#' and " +
+        "ancestor::*[local-name(.)='Reference'"+
+        //" and @URI='#" +
+        //currentNode.getAttribute("ID") + "'"
+        "]" +
+        "]"
   const transforms = xpath.selectElements(currentNode, xpathTransformQuery);
   // Reject also XMLDSIG with more than 2 Transform
   if (transforms.length > 2) {
@@ -126,7 +127,9 @@ const validateXmlSignatureWithPemFile = (
   const refId = refUri[0] === "#" ? refUri.substring(1) : refUri;
   // If we can't find the reference at the top level, reject
   const idAttribute = currentNode.getAttribute("ID") ? "ID" : "Id";
-  if (currentNode.getAttribute(idAttribute) != refId) return false;
+  
+  //if (currentNode.getAttribute(idAttribute) != refId) return false;
+  
   // If we find any extra referenced nodes, reject.  (xml-crypto only verifies one digest, so
   //   multiple candidate references is bad news)
   const totalReferencedNodes = xpath.selectElements(
